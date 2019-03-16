@@ -1,3 +1,15 @@
+function escapeHtml(text) {
+    //TODO: take this function and move it somewhere else
+
+    // https://stackoverflow.com/a/6234804
+    return text
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+}
+
 function showLink(local, remote) {
     const div = document.createElement('div');
     div.className = 'alert alert-warning alert-dismissible fade show';
@@ -10,7 +22,7 @@ function showLink(local, remote) {
 
     const remoteLink = document.createElement('a');
     remoteLink.className = 'alert-link';
-    remoteLink.href = remote.text(); // html escape precaution
+    remoteLink.href = escapeHtml(remote); // html escape precaution
     remoteLink.appendChild(document.createTextNode(remote));
 
     const span = document.createElement('span');
