@@ -10,7 +10,7 @@ function showLink(local, remote) {
 
     const remoteLink = document.createElement('a');
     remoteLink.className = 'alert-link';
-    remoteLink.href = remote;
+    remoteLink.href = remote.text(); // html escape precaution
     remoteLink.appendChild(document.createTextNode(remote));
 
     const span = document.createElement('span');
